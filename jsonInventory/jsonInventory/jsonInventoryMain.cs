@@ -9,23 +9,45 @@ namespace jsonInventory
 {
     internal class jsonInventoryMain
     {
-        InventoryModel model = new InventoryModel();
-        List<InventoryModel> list = new List<InventoryModel>();
+        
 
         public void convert(string jFilePath)
         {
-
+            FactoryModel model = new FactoryModel();
+            List<InventoryModel> Rice;
+            List<InventoryModel> Wheat;
+            List<InventoryModel> Pulses;
 
             using (StreamReader file = new StreamReader(jFilePath)) 
             {
                 var json = file.ReadToEnd();
-                var items = JsonConvert.DeserializeObject<List<InventoryModel>>(json);
-                Console.WriteLine("Item     Price     Weight     Total Value");
-                foreach (var objects in items)
+                FactoryModel item = JsonConvert.DeserializeObject<FactoryModel>(json);
+                Rice = item.Rice;
+                Wheat = item.Wheat;
+                Pulses = item.Pulses;
+                Console.WriteLine("Which Item you want check:\n1.Rice\n2.Wheat\n3.Pulses");
+                int choice = Convert.ToInt32(Console.ReadLine());
+                Console.WriteLine("Item\tPrice\tweight");
+                switch (choice)
                 {
-                    double value = objects.price * objects.weight;
-                    Console.WriteLine(objects.name +"   -> "+ objects.price +"   ->   "+ objects.weight +"     ->  "+ value);
+                    case 1:
+                        foreach (var contact in Rice)
+                        Console.WriteLine(contact.name +" -> "+ contact.price +"  -> "+ contact.weight);
+                        break;
+                    case 2:
+                        foreach (var contact in Rice)
+                            Console.WriteLine(contact.name + "  -> " + contact.price + "  ->  " + contact.weight);
+                        break;
+                    case 3:
+                        foreach (var contact in Rice)
+                            Console.WriteLine(contact.name + "  -> " + contact.price + "  ->  " + contact.weight);
+                        break;
+                    default:
+                        Console.WriteLine("Invalid option.");
+                        break;
                 }
+                
+                
             }
         }
     }
