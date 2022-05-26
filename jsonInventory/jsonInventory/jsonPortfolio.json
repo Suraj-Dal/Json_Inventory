@@ -1,0 +1,18 @@
+
+  [
+    {
+      "sName": "Tata",
+      "noOfShares": "100",
+      "sharePrice": "260"
+    },
+    {
+      "sName": "Wipro",
+      "noOfShares": "120",
+      "sharePrice": "480"
+    },
+    {
+      "sName": "HAL",
+      "noOfShares": "80",
+      "sharePrice": "340"
+    }
+  ]
